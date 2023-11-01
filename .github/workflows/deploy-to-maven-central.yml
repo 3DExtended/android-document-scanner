@@ -21,6 +21,6 @@ jobs:
         run: |
           ./gradlew publishReleasePublicationToMavencentralRepository \
             -PossrhSigningKey="${{ secrets.MAVEN_CENTRAL_KEY }}" \
-            -PossrhSigningPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}" \
+            -PossrhSigningPassword="${{ secrets.MAVEN_CENTRAL_KEPASSWORD }}" \
             -PossrhUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
             -PossrhPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}"
