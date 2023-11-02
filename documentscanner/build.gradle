@@ -92,6 +92,7 @@ publishing {
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
             credentials {
+                println findProperty("ossrhUsername")
                 username findProperty("ossrhUsername")
                 password findProperty("ossrhPassword")
             }
