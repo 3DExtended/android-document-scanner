@@ -5,6 +5,19 @@ apps that let users scan notes, homework, business cards, receipts, or anything 
 
 ![Dollar Android](https://user-images.githubusercontent.com/26162804/160306955-af9c5dd6-5cdf-4e2c-8770-c734a594985d.gif)
 
+## Deploy
+
+Was ein scheiß Prozess. Um das Pakte nach MavenCentral zu pushen, muss ich das Projekt auschecken (auf Windows), mit ```
+./gradlew publishReleasePublicationToSonatypeRepository \
+            -PossrhSigningKey="${{ secrets.MAVEN_CENTRAL_KEY }}" \
+            -PossrhSigningPassword="${{ secrets.MAVEN_CENTRAL_KEPASSWORD }}" \
+            -PossrhUsername="${{ secrets.MAVEN_CENTRAL_USERNAME }}" \
+            -PossrhPassword="${{ secrets.MAVEN_CENTRAL_PASSWORD }}"
+
+``` bauen und deployen, mich hier einloggen: <https://s01.oss.sonatype.org/#stagingRepositories>, dort das "repository" closen (was soviel heißt wie fertig machen), dann läuft sonatype los, und dann nach 5min kann ich das ding releasen. irgendwann später wird das artefakt dann auf maven central bereitgestellt....
+
+
+
 ## Install
 
 Open `build.gradle` and add this to `dependencies`
@@ -15,10 +28,14 @@ implementation 'com.websitebeaver:documentscanner:1.3.5'
 
 ## Examples
 
-* [Basic Example](#basic-example)
-* [Limit Number of Scans](#limit-number-of-scans)
-* [Remove Cropper](#remove-cropper)
-* [Java Example](#java-example)
+- [Android Document Scanner](#android-document-scanner)
+  - [Deploy](#deploy)
+  - [Examples](#examples)
+    - [Basic Example](#basic-example)
+    - [Limit Number of Scans](#limit-number-of-scans)
+    - [Remove Cropper](#remove-cropper)
+    - [Java Example](#java-example)
+  - [License](#license)
 
 ### Basic Example
 
